@@ -98,9 +98,7 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 TW_LOAD_VENDOR_MODULES := "goodix_fp.ko adsp_loader_dlkm.ko modules.load msm_drm.ko q6_notifier_dlkm.ko q6_pdr_dlkm.ko sensors_ssc.ko qti_battery_charger_main.ko fts_tp.ko"
 
-# Haptics fix
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
-
+# Device modules
 TARGET_RECOVERY_DEVICE_MODULES += \
     libandroidicu \
     libdisplayconfig.qti \
@@ -125,5 +123,3 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     libhealthd.$(PRODUCT_PLATFORM)
 
-# VINTF
-PRODUCT_ENFORCE_VINTF_MANIFEST := true

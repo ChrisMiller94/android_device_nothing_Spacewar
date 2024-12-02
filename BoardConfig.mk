@@ -16,6 +16,11 @@
 
 DEVICE_PATH := device/nothing/Spacewar
 
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_CLANG_PROPERTY := true
+BUILD_BROKEN_INCORRECT_PARTITION_IMAGES := true
+
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -60,7 +65,7 @@ BOARD_KERNEL_PAGESIZE := 4096
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_BOOT_HEADER_VERSION := 4
+BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
@@ -137,13 +142,13 @@ TARGET_COPY_OUT_VENDOR := vendor
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
-BOARD_USES_METADATA_PARTITION := true
 TW_USE_FSCRYPT_POLICY := 1
 TW_PREPARE_DATA_MEDIA_EARLY := true
 PRODUCT_ENFORCE_VINTF_MANIFEST := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
+TW_SKIP_ADDITIONAL_FSTAB := true
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -154,13 +159,15 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 1200
-TWRP_INCLUDE_LOGCAT := true
 TW_INCLUDE_PYTHON := true
-TARGET_USES_LOGD := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_OVERRIDE_SYSTEM_PROPS := "ro.build.date.utc;ro.build.product;ro.build.fingerprint=ro.system.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
 
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SKIP_ADDITIONAL_FSTAB := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+
+# Debug flags
+TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
