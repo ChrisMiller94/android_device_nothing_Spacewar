@@ -89,6 +89,7 @@ TARGET_USES_MKE2FS := true
 TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone50/temp"
+TW_SUPPORT_INPUT_QTI_HAPTICS := true
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
